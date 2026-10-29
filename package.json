@@ -1,0 +1,24 @@
+{
+  "name": "trabajo-practico-integrador-3",
+  "version": "1.0.0",
+  "description": "API REST de usuarios, eventos y categorías con MongoDB y Mongoose",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.3.0",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.24.7"
+  }
+}
