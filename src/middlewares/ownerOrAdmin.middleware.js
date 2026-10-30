@@ -1,8 +1,10 @@
+import { matchedData } from "express-validator";
 import { EventModel } from "../models/event.model.js";
 
 export const ownerOrAdminMiddleware = async (req, res, next) => {
   try {
-    const event = await EventModel.findById(req.params.id);
+    const { id } = matchedData(req, { locations: ["params"] });
+    const event = await EventModel.findById(id);
     if (!event) {
       return res.status(404).json({ message: "evento no encontrado" });
     }

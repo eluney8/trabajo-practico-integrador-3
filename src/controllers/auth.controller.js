@@ -5,7 +5,7 @@ import { signToken } from "../helpers/jwt.helper.js";
 
 export const register = async (req, res) => {
   try {
-    const data = matchedData(req);
+    const data = matchedData(req, { locations: ["body"] });
     const hashedPassword = await hashPassword(data.password);
     const newUser = await UserModel.create({
       ...data,
@@ -31,7 +31,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { email, password } = matchedData(req);
+    const { email, password } = matchedData(req, { locations: ["body"] });
     const user = await UserModel.findOne({ email, deletedAt: null });
     if (!user) {
       return res.status(401).json({ message: "credenciales invalidas" });
